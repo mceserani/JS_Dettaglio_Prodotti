@@ -1,5 +1,25 @@
 let prodotti = [];
 
+window.addEventListener('load',() => {
+    // Open the file "prodotti" and read it in the vector prodotti
+    const xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = () => {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            prodotti = JSON.parse(xhr.responseText);
+            showProducts();
+        }
+    };
+    xhr.open("GET", "prodotti", true);
+    xhr.send();
+});
+
+window.addEventListener('unload',() => {
+    // Save the vector prodotti in the file "prodotti" 
+    const xhr = new XMLHttpRequest();
+    xhr.open("POST", "prodotti", true);
+    xhr.setRequestHeader("Content-Type", "application/json");
+	xhr.send(JSON.stringify(prodotti));
+});
 
 function addProduct(){
     // Acquire id from a prompt box
@@ -17,4 +37,15 @@ function addProduct(){
         description: descrizione_prodotto
     };
     prodotti.push(prodotto);
+    showProducts();
+}
+
+function showProducts(){
+    let listaHTML= "<ul>";
+    let pl = document.getElementById("product-list");
+    for (let prodotto of prodotti){
+        listaHTML = listaHTML + "<li>" + prodotto.id + " - " + prodotto.name + " - " + prodotto.price + " - " + prodotto.description + "</li>";
+    }
+    listaHTML = listaHTML + "</ul>";
+    pl.innerHTML=listaHTML;
 }
