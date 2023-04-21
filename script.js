@@ -13,12 +13,12 @@ window.addEventListener('load',() => {
     xhr.send();
 });
 
-window.addEventListener('unload',() => {
+window.addEventListener('beforeunload',() => {
     // Save the vector prodotti in the file "prodotti" 
     const xhr = new XMLHttpRequest();
     xhr.open("POST", "prodotti", true);
-    xhr.setRequestHeader("Content-Type", "application/json");
-	xhr.send(JSON.stringify(prodotti));
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.send(JSON.stringify(prodotti));
 });
 
 function addProduct(){
