@@ -14,11 +14,7 @@ window.addEventListener('load',() => {
 });
 
 window.addEventListener('beforeunload',() => {
-    // Save the vector prodotti in the file "prodotti" 
-    const xhr = new XMLHttpRequest();
-    xhr.open("POST", "prodotti", true);
-    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    xhr.send(JSON.stringify(prodotti));
+    saveProducts();
 });
 
 function addProduct(){
@@ -48,4 +44,12 @@ function showProducts(){
     }
     listaHTML = listaHTML + "</ul>";
     pl.innerHTML=listaHTML;
+}
+
+function saveProducts(){
+    // Save the vector prodotti in the file "prodotti" 
+    const xhr = new XMLHttpRequest();
+    xhr.open("POST", "prodotti", true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.send(JSON.stringify(prodotti));
 }
