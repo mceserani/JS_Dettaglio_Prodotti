@@ -1,0 +1,24 @@
+{
+  "name": "js_dettaglio_prodotti",
+  "version": "1.0.0",
+  "description": "Pagina web per la gestione dei dettagli di un elenco di prodotti",
+  "main": "backend.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mceserani/JS_Dettaglio_Prodotti.git"
+  },
+  "author": "Matteo Ceserani",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mceserani/JS_Dettaglio_Prodotti/issues"
+  },
+  "homepage": "https://github.com/mceserani/JS_Dettaglio_Prodotti#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2"
+  },
+  "type": "module"
+}

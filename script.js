@@ -9,7 +9,7 @@ window.onload = function(){
             showProducts();
         }
     }
-    xhr.open("GET", "prodotti.json", true);
+    xhr.open("GET", "http://localhost:3000/prodotti.json", true);
     xhr.send();
 }; 
 
@@ -21,7 +21,7 @@ function saveProducts(){
             console.log("Salvataggio effettuato");
         }
     }
-    xhr.open("POST", "prodotti.json", true);
+    xhr.open("POST", "http://localhost:3000/prodotti.json", true);
     xhr.setRequestHeader("Content-type", "application/json");
     xhr.send(JSON.stringify(prodotti));
 };
